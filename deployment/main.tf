@@ -11,14 +11,14 @@ variable "policy_ref" {
 }
 
 module "iam_policy_local" {
-  source = "github.com/terraform-aws-modules/iam/aws//modules/iam-policy?ref=${local.policy_ref}"
+  source = "github.com/terraform-aws-modules/terraform-aws-iam//modules/iam-policy?ref=${local.policy_ref}"
 
   name   = "policy_local"
   policy = data.aws_iam_policy_document.allow-ro.json
 }
 
 module "iam_policy_variable" {
-  source = "github.com/terraform-aws-modules/iam/aws//modules/iam-policy?ref=${var.policy_ref}"
+  source = "github.com/terraform-aws-modules/terraform-aws-iam//modules/iam-policy?ref=${var.policy_ref}"
 
   name   = "policy_var"
   policy = data.aws_iam_policy_document.allow-ro.json
