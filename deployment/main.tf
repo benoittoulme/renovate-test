@@ -24,6 +24,22 @@ module "iam_policy_variable" {
   policy = data.aws_iam_policy_document.allow-ro.json
 }
 
+
+module "iam_policy_local_in_locals_file" {
+  source = "github.com/terraform-aws-modules/terraform-aws-iam//modules/iam-policy?ref=${local.policy_ref_in_locals_file}"
+
+  name   = "policy_local_in_locals_file"
+  policy = data.aws_iam_policy_document.allow-ro.json
+}
+
+module "iam_policy_variable_in_variable_file" {
+  source = "github.com/terraform-aws-modules/terraform-aws-iam//modules/iam-policy?ref=${var.policy_ref_in_variable_file}"
+
+  name   = "policy_variable_in_variable_file"
+  policy = data.aws_iam_policy_document.allow-ro.json
+}
+
+
 data "aws_iam_policy_document" "allow-ro" {
   statement {
     effect    = "Allow"
