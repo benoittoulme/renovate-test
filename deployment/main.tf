@@ -3,11 +3,11 @@ provider "aws" {
 }
 
 locals {
-  policy_ref = "v6.2.3"
+  policy_ref = "v6.8.2"
 }
 
 variable "policy_ref" {
-  default = "v6.2.3"
+  default = "v6.8.2"
 }
 
 module "iam_policy_local" {
